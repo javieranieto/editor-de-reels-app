@@ -593,6 +593,7 @@ def editar_con_plan(plan_path, nombre, modelo="medium", idioma="es",
     # agrupador no opina: hay formatos donde el corte de la frase ES el
     # contenido -las columnas "Parte 1 / Parte 2" de un guion de frases- y
     # dejarlo al algoritmo lo parte por donde no toca.
+    palabras_linea = palabras_finales   # los fx buscan sus palabras aqui, aunque abajo se vuelva None
     bloques = plan.get("bloques_texto")
     srt_path = os.path.join(trabajo, "subtitulos.srt")
     if bloques:
@@ -617,6 +618,15 @@ def editar_con_plan(plan_path, nombre, modelo="medium", idioma="es",
         log("Tiempo de trabajo: %s" % _dur_humana(time.time() - t_inicio))
         return {"mp4": destino, "trabajo": trabajo}
 
+    # Efectos de video (letras detras, tarjetas, acercamiento...): se arman aqui y
+    # entran como overlays y b-roll normales. Ver pipeline/fx.py y python tools/fx.py.
+    fx_overlays, fx_broll = [], []
+    if plan.get("fx"):
+        from . import fx as mod_fx
+        log("Armando %d efecto(s) de video..." % len(plan["fx"]))
+        fx_overlays, fx_broll = mod_fx.resolver(plan["fx"], segmentos, palabras_linea, trabajo,
+                                                modo_zoom=zoom, log=log, marca=plan.get("marca"))
+
     from . import capcut_lib
     log("Creando el proyecto de CapCut...")
     res = capcut_lib.construir_segmentos(
@@ -625,7 +635,7 @@ def editar_con_plan(plan_path, nombre, modelo="medium", idioma="es",
         palabras=palabras_finales if subtitulos else None,
         captions=captions, zoom=zoom, palabras_por_clip=palabras_por_clip,
         callouts=plan.get("datos"),
-        broll=_resolver_broll(plan.get("broll"), canvas, trabajo, log),
+        broll=((_resolver_broll(plan.get("broll"), canvas, trabajo, log) or []) + fx_broll) or None,
         # Un reel de guion -imagen fija, voz reflexiva- NO lleva el flash de
         # apertura ni los golpes de sonido: esos existen para el reel hablado a
         # camara, donde marcan el arranque y los cortes. Aqui no hay cortes que
@@ -642,7 +652,7 @@ def editar_con_plan(plan_path, nombre, modelo="medium", idioma="es",
         musica=_preparar_musica(plan, cursor, log),
         voz=({"volumen": 1.0, "fade_out": 0, **plan["voz"]}
              if plan.get("voz", {}).get("archivo") else None),
-        overlays=_lista(plan, "overlays", []) or None,
+        overlays=(_lista(plan, "overlays", []) + fx_overlays) or None,
         # la frase clave en grande: cual merece pantalla es criterio, asi que
         # solo sale si el plan la escribe (ver pipeline/frases.py)
         frases=_lista(plan, "frases", []) or None,

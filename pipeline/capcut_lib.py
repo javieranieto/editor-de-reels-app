@@ -425,7 +425,12 @@ def _avisar_overlays_tapados(overlays, broll, log):
     """
     if not overlays or not broll or log is None:
         return
+    # Los efectos de pipeline/fx.py se saltan: su "b-roll" es la misma persona (acercamiento,
+    # escenas) y sus tarjetas van encima a proposito; contarlos era falsa alarma.
+    broll = [x for x in broll if not x.get("fx")]
     for o in overlays:
+        if str(o.get("pista", "")).startswith("fx "):
+            continue
         a, b = float(o.get("ini", 0)), float(o.get("fin", 0))
         libre = b - a
         for x in broll:

@@ -398,6 +398,23 @@ que quedaron sin imagen.
 - Los overlays (subrayados, círculos) solo sirven con **alfa real**, y su escala se calcula
   midiendo el alfa (`adornos.py`), no a ojo. Bajo un b-roll a pantalla completa no se ven.
 
+### Efectos de video y animaciones
+- **24 efectos** que se piden en el plan con `"fx"` y una palabra ancla; el editor los arma y
+  los acomoda solo en CapCut. **Nunca entran solos:** sin `"fx"`, la edición es la de siempre.
+  Qué hay y qué se ha usado: `python tools/fx.py`. Formato: docstring de `pipeline/fx.py`.
+  Cómo se proponen: skill `revisar-reel`, pasos 4b y 4c.
+- La base es **el recorte de la persona** (`pipeline/recorte.py`, Robust Video Matting): sale
+  de la grabación original, lleva el zoom seco de su corte, y va en ProRes 4444 con el color
+  **premultiplicado**, que es como lo lee CapCut (guardado "puro" deja un filito claro). El
+  modelo se baja solo la primera vez (15 MB).
+- Pistas, de abajo arriba: video · b-roll · adornos · `fx detras` · `fx recorte` ·
+  `fx tarjetas` · textos. Lo armado se guarda en `proyectos/<nombre>/fx/`.
+- **Colores**: los de la marca del plan (`"marca": "mi_marca"` → `recursos/marcas/mi_marca.json`).
+- Abortan con mensaje (no se callan): palabra que no cabe, tarjeta que taparía la cara, efecto
+  de pantalla completa que cruza un corte, uno "detrás" encima de uno de pantalla completa.
+- **Animaciones de la biblioteca** (lista, comparativa, titular, burbujas, controles, sello,
+  contador, etapas): `python tools/motion.py`; detalle en `pipeline/motion/LEEME.md`.
+
 ### Video animado
 - **`frame(t)` es determinista** (el azar se siembra con el cuadro y el lienzo se limpia en
   cada uno): vista previa y render son el mismo dibujo, y un cambio del motor se valida

@@ -108,6 +108,20 @@ Lo que más vale no es el automático sino la revisión: abre Claude Code y píd
 *"revisa <nombre del proyecto>"*. Decide qué corte sobra, cuál frase es la tesis y qué cifra
 merece pantalla, y te explica por qué.
 
+## Efectos de video
+
+Además de cortar y subtitular, el editor tiene **24 efectos** que se piden en el plan con una
+palabra de lo que dices: letras de vidrio detrás de ti, portada de revista, un teléfono con los
+mensajes, una lista que se palomea, el antes y después, un chat que se escribe solo, el cuarto
+que se acerca mientras tú te quedas quieto, y más. Salen ya acomodados en CapCut. Míralos todos,
+con un ejemplo de cada uno: **[javiernieto.net/profesional/recursos/editor-de-reels](https://javiernieto.net/profesional/recursos/editor-de-reels/)**.
+
+```bash
+python tools/fx.py        # qué efectos hay y para qué momento sirve cada uno
+```
+
+Lo más fácil es pedírselo a Claude al revisar: *"revisa <proyecto> y propón efectos"*.
+
 ## Video largo de YouTube
 
 De una o varias tomas a un proyecto de CapCut armado: el corte por frases medido en el audio,
@@ -148,3 +162,11 @@ te lo devuelva: `python tools/importar.py "<carpeta>" --nombre "<nombre>"`.
 
 Todo lo demás —comandos, estructura y las lecciones que evitan romper algo— está en
 `CLAUDE.md`.
+
+## Créditos
+
+- El recorte de la persona usa [Robust Video Matting](https://github.com/PeterL1n/RobustVideoMatting)
+  (GPL-3.0); el modelo se baja de ahí la primera vez, no viene en este repo.
+- Tipografías Poppins, Open Sans, Roboto Mono y Bodoni Moda, de Google Fonts (OFL).
+- Algunas ideas de los efectos vienen de técnicas de motion design que vi en comunidades de
+  creadores. El código es mío.

@@ -14,3 +14,4 @@ opencv-python-headless
 # Aceleracion por GPU NVIDIA (opcional; sin esto corre en CPU)
 # nvidia-cublas-cu12      <- descomentar solo con tarjeta NVIDIA (son varios GB)
 # nvidia-cudnn-cu12
+onnxruntime                # recorte de la persona (pipeline/recorte.py); el modelo se baja solo

@@ -15,6 +15,8 @@ Para hacer la tuya, copia `ejemplo.json` como `mi_marca.json` y cambia:
 - `letras`: familias que existan en `recursos/fuentes/`. Para una letra nueva, pon su `.ttf` en
   esa carpeta y su nombre en `archivos_de_letra` (`{"Montserrat": "Montserrat-VF.ttf"}`).
 - `firma`: el texto chico que va abajo en los paneles (déjalo vacío si no quieres firma).
+- `usuario`: tu @ de redes; sale en el efecto «rompe el marco» (vacío = sin usuario).
+- Los efectos de video (`"fx"` en el plan) usan estos mismos colores: en el plan, `"marca": "mi_marca"`.
 
 Después corre `python recursos/escenas/iconos/armar_iconos.py` para que los íconos tengan tus
 colores. **Solo `ejemplo.json` sube al repo**: las demás son tuyas y se quedan en tu máquina.

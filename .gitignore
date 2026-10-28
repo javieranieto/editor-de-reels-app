@@ -33,3 +33,6 @@ recursos/escenas/iconos/iconos.js
 
 # el estilo de cada quien (lo escribe Claude con largo.py aprender) se queda en su maquina
 mi_estilo.md
+
+# Modelo de recorte (Robust Video Matting, GPL-3.0, 15 MB): se baja solo la primera vez
+recursos/modelos/rvm_*.onnx

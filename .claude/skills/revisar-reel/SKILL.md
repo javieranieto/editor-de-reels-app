@@ -76,6 +76,33 @@ La frase clave en grande (`"frases"`) es la tesis de cada bloque, de **tres pala
 tres líneas tapa la boca. Va donde la imagen NO lo dice: si el stock ya lo enseña, la frase
 se lo come.
 
+### 4b. Animaciones de la biblioteca: OFRECER
+
+Donde el reel **cuenta algo** (una lista, un antes y después, un proceso, un veredicto, una
+cantidad), revisar `python tools/motion.py` y **proponer** la pieza que encaje. Una por clip; el
+resto del reel, la persona en pantalla. No se arma sin que diga que sí.
+
+### 4c. Efectos de video: PROPONER, con variedad
+
+Hay 24 efectos (letras de vidrio, portada, teléfono, lista, antes y después, chat, acercamiento,
+vértigo, revelación, cierre, órbita, gráficas, escenas de pantalla completa…). **Lo único que se
+lee es `python tools/fx.py`**: qué hay, para qué momento, sus cuidados y en cuántos de los
+últimos reels salió cada uno. El formato del plan (`"fx"`) está en el docstring de
+`pipeline/fx.py` y se lee solo al escribirlo; el código de cada efecto no.
+
+- **Se propone, no se pone.** Una lista corta: *frase → efecto → por qué*. La persona dice sí o no.
+- **Del momento, no del catálogo.** Una idea que abre → algo detrás de la cabeza; pasos → lista;
+  un número que cambia → antes y después; mensajes → teléfono; "y ahí me di cuenta" → vértigo;
+  "le escribo esto" → chat; cierre → cierre.
+- 🔑 **Variar es la regla.** En un reel de 30-60 s, 2-4 efectos de **familias distintas**
+  (detrás / encima / pantalla completa), nunca dos iguales seguidos, y lo más usado en los
+  últimos reels **no va primero** salvo que sea claramente lo mejor (y se dice).
+- **Respiro:** entre dos efectos, unos segundos de la persona sola a cuadro.
+- **Dónde NO:** sobre b-roll o donde la persona no sale a cuadro (lo de "detrás" necesita su
+  recorte); acercamiento, vértigo y escenas dentro de UN corte; cifras de un cliente, nunca.
+- **El encuadre manda:** con la cabeza en el tercio de arriba, lo de "detrás" asoma por ARRIBA
+  de la cabeza y lo que hay que leer va sobre el pecho.
+
 ### 5. B-roll
 
 - Solo donde **ilustra**, y **nunca sobre el golpe**: tapar la frase clave con stock la

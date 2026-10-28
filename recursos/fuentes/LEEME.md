@@ -4,8 +4,10 @@
 |---|---|---|
 | `Poppins-Bold.ttf`, `Poppins-SemiBold.ttf`, `Poppins-Medium.ttf` | Poppins (Indian Type Foundry) | SIL Open Font License 1.1 |
 | `RobotoMono.ttf` | Roboto Mono (The Roboto Mono Project Authors) | SIL Open Font License 1.1 |
+| `OpenSans-VF.ttf` | Open Sans (The Open Sans Project Authors) | SIL Open Font License 1.1 |
+| `BodoniModa.ttf` | Bodoni Moda (The Bodoni Moda Project Authors) — la de la portada de revista | SIL Open Font License 1.1 (texto en `OFL - Bodoni Moda.txt`) |
 
-La licencia viene escrita dentro de cada `.ttf` (campo de licencia del archivo) y las dos se
+La licencia viene escrita dentro de cada `.ttf` (campo de licencia del archivo) y todas se
 bajan de [Google Fonts](https://fonts.google.com). La **OFL** permite usarlas,
 incrustarlas en videos e imágenes y redistribuirlas junto con software, con una condición:
 **no se venden solas** y, si se modifican, no pueden llevar el mismo nombre. Texto completo:

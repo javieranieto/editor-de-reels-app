@@ -1,0 +1,95 @@
+"""Que hay en la biblioteca, en que estado, y una muestra de cada pieza para ofrecerla.
+
+estado: "aprobada <fecha>" = salio de un video que el aprobo · "nueva" = su estilo, no la ha visto.
+Al aprobar una nueva en un video real, se cambia aqui su estado (con la fecha y lo que dijo).
+Las muestras usan frases de ejemplo con tiempos regulares (palabras_sinteticas): sirven para
+VER la pieza, no son de ningun cliente.
+"""
+
+CATALOGO = {
+    "lista": {
+        "estado": "aprobada 22-sep (reel 2, las 4 preguntas)",
+        "sirve": "cuando cuentas cosas: 'uno… dos… tres…', pasos, preguntas, requisitos",
+        "frase": "Hay tres cosas Uno el precio Dos la respuesta Tres el seguimiento y la que menos cuidan es la tres",
+        "spec": {"pieza": "lista", "etiqueta": "Las 3 cosas",
+                 "items": [{"texto": "El precio que pones", "en": "Uno"},
+                           {"texto": "Qué tan rápido contestas", "en": "Dos"},
+                           {"texto": "Si le das seguimiento", "en": {"en": "Tres", "despues_de": "Dos"}}],
+                 "enfocar": [{"items": [2], "en": {"en": "menos", "mas": 0.2}}],
+                 "fin": {"en": "tres", "despues_de": {"en": "menos"}, "mas": 1.2}},
+    },
+    "comparativa": {
+        "estado": "aprobada 22-sep (reel 3, alcance o mensaje)",
+        "sirve": "dos casos que se parecen y no son lo mismo; uno se arregla, el otro no",
+        "frase": "Hay dos problemas Si no llega nadie eso se arregla con dinero Si llegan y no compran eso no",
+        "spec": {"pieza": "comparativa", "etiqueta": "Dos problemas distintos", "inicio": {"en": "Hay", "mas": -0.15},
+                 "filas": [{"sub": "No llega nadie", "grande": "ALCANCE", "respuesta": "se arregla con dinero", "bien": True, "en": "dinero"},
+                           {"sub": "Llegan, pero no compran", "grande": "MENSAJE", "respuesta": "con dinero, no", "bien": False,
+                            "en": {"en": "no", "despues_de": {"en": "compran"}, "mas": 0.4}}],
+                 "fin": {"en": "eso", "despues_de": {"en": "compran"}, "mas": 1.6}},
+    },
+    "titular": {
+        "estado": "aprobada 22-sep (reel 4, a quién no quieres)",
+        "sirve": "una pregunta o frase-tesis, con UNA palabra que golpea (sello en acento)",
+        "frase": "Agarra tu último anuncio y pregúntate a quién NO quiero que me escriba porque eso cambia todo",
+        "spec": {"pieza": "titular", "etiqueta": "Tu tarea", "inicio": {"en": "Agarra", "mas": -0.25},
+                 "anuncio": {"titulo": "Tu último anuncio", "en": "último"},
+                 "lineas": [{"texto": "¿A quién", "en": {"en": "a", "despues_de": "anuncio", "mas": -0.05}},
+                            {"texto": "quiero que", "en": {"en": "quiero", "mas": 0.0}},
+                            {"texto": "me escriba?", "en": {"en": "escriba", "mas": -0.1}}],
+                 "sello": {"texto": "NO", "en": "NO"},
+                 "fin": {"en": "porque", "mas": 1.0}},
+    },
+    "burbujas": {
+        "estado": "aprobada 22-sep (reel 5, menos mensajes mejores)",
+        "sirve": "una cantidad que baja (o se filtra) y lo que queda vale más",
+        "frase": "Al principio te llegan 20 mensajes afinando bajan a 15 luego 10 Pero son mejores clientes",
+        "spec": {"pieza": "burbujas", "etiqueta": "Ejemplo", "inicio": {"en": "Al", "mas": -0.1},
+                 "aparece": "20", "titulo_cambia": "afinando",
+                 "cambios": [{"a": 15, "en": "15"}, {"a": 10, "en": "10"}],
+                 "cierre": {"lineas": ["Menos mensajes.", "Mejores clientes."], "en": "Pero"},
+                 "fin": {"en": "clientes", "mas": 1.3}},
+    },
+    "controles": {
+        "estado": "aprobada 22-sep (reel 6, no está en los botones)",
+        "sirve": "lo que la gente le mueve a una herramienta (filtros, rangos, opciones) sin que sea el problema",
+        "frase": "Todos empiezan a mover la segmentación la edad el lugar y los creativos y no es ahí",
+        "spec": {"pieza": "controles", "etiqueta": "Lo que todos le mueven", "inicio": {"en": "Todos", "mas": -0.25},
+                 "filas": [{"nombre": "Segmentación", "en": "segmentación", "tipo": "desplegable",
+                            "opciones": ["Intereses: autos", "Intereses: hogar", "Intereses: negocios", "Intereses: todo"]},
+                           {"nombre": "Edad", "en": "edad", "tipo": "rango", "desde": [25, 45], "hasta": [18, 65], "escala": [1, 70]},
+                           {"nombre": "Lugar", "en": "lugar", "tipo": "rango", "desde": [1, 5], "hasta": [1, 25], "escala": [1, 30],
+                            "formato": "{hi} km", "una_perilla": True},
+                           {"nombre": "Creativos", "en": "creativos", "tipo": "colores"}],
+                 "fin": {"en": "creativos", "mas": 1.4}},
+    },
+    "sello": {
+        "estado": "nueva",
+        "sirve": "el veredicto: 'calificado', 'listo', 'no era el anuncio'; cae en la palabra clave",
+        "frase": "Leyó los mensajes revisó qué preguntaban y entonces lo marcó como calificado",
+        "spec": {"pieza": "sello", "etiqueta": "El agente decide", "inicio": {"en": "Leyó", "mas": -0.2},
+                 "contexto": [{"texto": "Leyó 3 mensajes", "en": "Leyó"},
+                              {"texto": "Preguntó precio", "en": "revisó"}],
+                 "sello": {"texto": "CALIFICADO", "en": "calificado"},
+                 "fin": {"en": "calificado", "mas": 1.4}},
+    },
+    "contador": {
+        "estado": "nueva",
+        "sirve": "cantidades, dinero o tiempo que crecen mientras lo dices",
+        "frase": "En un año de pagos recurrentes eso suma hasta llegar a 12 meses cobrados sin volver a vender",
+        "spec": {"pieza": "contador", "etiqueta": "Pago recurrente", "titulo": "Meses cobrados",
+                 "inicio": {"en": "En", "mas": -0.2}, "desde": 0, "hasta": 12, "formato": "{n}",
+                 "empieza": "suma", "termina": "12", "pie": {"texto": "sin volver a vender", "en": "sin"},
+                 "fin": {"en": "vender", "mas": 1.2}},
+    },
+    "etapas": {
+        "estado": "nueva",
+        "sirve": "un proceso en pasos, para que no se pierdan en qué paso vas",
+        "frase": "Primero llega el mensaje luego lo calificas y al final agendas la cita",
+        "spec": {"pieza": "etapas", "etiqueta": "El proceso", "inicio": {"en": "Primero", "mas": -0.2},
+                 "etapas": [{"corto": "01 LLEGA", "detalle": "Entra el mensaje", "en": "Primero"},
+                            {"corto": "02 FILTRA", "detalle": "Lo calificas", "en": "calificas"},
+                            {"corto": "03 CITA", "detalle": "Agendas la cita", "en": "agendas"}],
+                 "fin": {"en": "cita", "mas": 1.4}},
+    },
+}
