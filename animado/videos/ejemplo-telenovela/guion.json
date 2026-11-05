@@ -1,0 +1,68 @@
+{
+ "_nota": "Narracion de corrido (tools/narrar.py): pon el id de una voz de tu cuenta de ElevenLabs y corre python tools/narrar.py animado/videos/ejemplo-telenovela; luego render con --param narrado=1 --audio audio_narrado.json.",
+ "narrado": {
+  "voz": "PON_AQUI_EL_ID_DE_TU_VOZ",
+  "modelo": "eleven_v4",
+  "estabilidad": 0.3,
+  "velocidad": 1.0,
+  "cola": 2.2,
+  "texto": "En el capítulo de hoy de Corazón de Mostrador... Él le escribió con toda la ilusión del mundo: ¿me puede atender hoy? Y ella... lo vio. Y lo dejó en visto. Pasaron las horas, y él se preguntaba: ¿por qué no me contestas? Hasta que otro negocio sí le respondió... y se fue con la competencia. Y ella, al darse cuenta... ¡Nooo! ¿Aprenderá a contestar a tiempo? No se pierda el próximo capítulo. Y usted, conteste en minutos, no en horas.",
+  "anclas": {
+   "escribe": [
+    "el",
+    2,
+    -0.3
+   ],
+   "telefono": [
+    "puede",
+    1,
+    -0.6
+   ],
+   "ella": [
+    "ella",
+    1,
+    -0.1
+   ],
+   "visto": [
+    "visto",
+    1,
+    -0.1
+   ],
+   "llora": [
+    "pasaron",
+    1,
+    -0.3
+   ],
+   "seva": [
+    "hasta",
+    1,
+    -0.3
+   ],
+   "competencia": [
+    "competencia",
+    1,
+    -0.2
+   ],
+   "nooo_escena": [
+    "darse",
+    1,
+    -0.6
+   ],
+   "nooo": [
+    "nooo",
+    1,
+    -0.15
+   ],
+   "proximo": [
+    "aprendera",
+    1,
+    -0.3
+   ],
+   "consejo": [
+    "usted",
+    1,
+    -0.4
+   ]
+  }
+ }
+}

@@ -79,7 +79,7 @@ da error: el navegador pone otra letra. Se ve en la hoja.
 }
 ```
 
-## Cuatro tipos de video que ya funcionan, cada uno con su ejemplo
+## Seis ejemplos que ya funcionan
 
 Antes de escribir uno nuevo, se copia el ejemplo más parecido. Todos usan el negocio demo
 (Servicios Alcaraz) y se pueden renderizar tal cual.
@@ -90,10 +90,11 @@ Antes de escribir uno nuevo, se copia el ejemplo más parecido. Todos usan el ne
 | `ejemplo-alcaraz` | Explicación dibujada a mano: papel, cámara, personaje de pixeles | Lanzamientos, explicaciones, cifras |
 | `ejemplo-pueblo` | **El pueblo de negocios**: un RPG de 16 bits (25 s, vertical, sin voz) | Serie de historias de mala (o buena) atención, para una marca personal o creativa |
 | `ejemplo-noticiero` | **Noticiero del negocio**: estudio, EN VIVO, cintillo, los datos, la recomendación (20 s) | Marca de empresa con público de dueños: referencia que todos reconocen, letra grande |
+| `ejemplo-loteria` | **La lotería de los negocios**: se canta una carta con el error del negocio, su verso y «¡LOTERÍA!» de la competencia (20 s) | Lo mismo, con referencia mexicana |
+| `ejemplo-telenovela` | **La telenovela del negocio**: lo dejan en visto, «¡NOOO!» y «en el próximo capítulo» (20 s) | Lo mismo; pide serie |
 
-Los dos últimos sirven de molde para otros formatos de «referencia que todos reconocen»: se
-probaron también una **carta de lotería** («El que contesta tarde», con su verso) y una
-**telenovela** («¡NOOOOO!», «En el próximo capítulo»). Se usa el FORMATO con dibujos propios:
+El noticiero, la lotería y la telenovela comparten `marcas/marca_ejemplo.js` y son molde para
+otros formatos de «referencia que todos reconocen». Se usa el FORMATO con dibujos propios:
 las cartas tradicionales, los personajes de videojuegos y la música de las consolas tienen
 dueño. Se homenajea la mecánica y los clichés del género, nunca personajes, nombres, logos
 ni música reales.

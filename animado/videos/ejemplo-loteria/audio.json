@@ -1,0 +1,36 @@
+{
+ "_nota": "Sonidos de recursos/sfx (ver su creditos.txt). Sin musica: la marca decide la suya.",
+ "efectos": [
+  {
+   "archivo": "recursos/sfx/whoosh.wav",
+   "en": 1.37,
+   "volumen": 0.6
+  },
+  {
+   "archivo": "recursos/sfx/impacto.wav",
+   "en": 2.0,
+   "volumen": 0.7
+  },
+  {
+   "archivo": "recursos/sfx/pop.wav",
+   "en": 8.0,
+   "volumen": 0.6
+  },
+  {
+   "archivo": "recursos/sfx/pop.wav",
+   "en": 10.4,
+   "volumen": 0.6
+  },
+  {
+   "archivo": "recursos/sfx/impacto.wav",
+   "en": 14.2,
+   "volumen": 0.8
+  },
+  {
+   "archivo": "recursos/sfx/whoosh.wav",
+   "en": 16.07,
+   "volumen": 0.6
+  }
+ ],
+ "lufs": -14
+}

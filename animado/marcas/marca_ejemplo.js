@@ -33,8 +33,10 @@ function aw(s, size, f = 'MontX') { X.save(); X.font = `${size}px ${f}`; const w
 function logo(cx, cy, alto, blanco = true, a = 1) {
   const im = MKIMG.logo;
   if (im) { const w = alto * im.width / im.height; X.save(); X.globalAlpha = a; X.drawImage(im, cx - w / 2, cy - alto / 2, w, alto); X.restore(); return; }
-  at(MARCA.nombre, cx, cy + alto * 0.15, { size: alto * 0.42, f: 'MontB', c: blanco ? MK.blanco : MK.navy, a });
-  at(MARCA.lema, cx, cy + alto * 0.5, { size: alto * 0.2, f: 'Mont', c: MK.acento, a });
+  // sin archivo, el nombre escrito ocupa el mismo ancho que ocuparia un logo de 3:1 (no se sale de donde iba el logo)
+  const k = Math.min(1, alto * 2.8 / aw(MARCA.nombre, alto * 0.42, 'MontB'));
+  at(MARCA.nombre, cx, cy + alto * 0.15 * k, { size: alto * 0.42 * k, f: 'MontB', c: blanco ? MK.blanco : MK.navy, a });
+  at(MARCA.lema, cx, cy + alto * 0.5 * k, { size: alto * 0.2 * k, f: 'Mont', c: MK.acento, a });
 }
 function fondoMarca(c1 = MK.navy, c2 = MK.hondo) {
   const gr = X.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, c1); gr.addColorStop(1, c2);

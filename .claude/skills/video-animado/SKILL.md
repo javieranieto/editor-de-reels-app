@@ -7,10 +7,10 @@ description: Del editor de reels (la herramienta vive en animado/). Hace un vide
 
 La herramienta está en `animado/` y las
 rutas de aquí son relativas a la raíz del repo. Todo el detalle en `animado/LEEME.md`.
-Hay cuatro ejemplos que funcionan tal cual, y **se copia el más parecido, no se empieza de
+Hay seis ejemplos que funcionan tal cual, y **se copia el más parecido, no se empieza de
 cero**: `ejemplo-dato` (capa transparente), `ejemplo-alcaraz` (explicación dibujada a mano),
 `ejemplo-pueblo` (serie tipo RPG de 16 bits, sin voz, con sonidos y música hechos por código)
-y `ejemplo-noticiero` (formato de noticiero con una marca de empresa, con narración opcional).
+`ejemplo-noticiero`, `ejemplo-loteria` y `ejemplo-telenovela` (formatos que todos reconocen, con una marca de empresa y narración opcional).
 Lo de cada marca vive en `animado/marcas/` (copiar `marca_ejemplo.js` para una nueva).
 
 ## Antes de dibujar, tres preguntas

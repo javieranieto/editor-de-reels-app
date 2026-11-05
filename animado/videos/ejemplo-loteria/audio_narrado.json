@@ -1,0 +1,11 @@
+{
+ "_nota": "Con la voz de tools/narrar.py.",
+ "efectos": [
+  {
+   "archivo": "animado/videos/ejemplo-loteria/assets/narrado.wav",
+   "en": 0,
+   "volumen": 1.0
+  }
+ ],
+ "lufs": -14
+}

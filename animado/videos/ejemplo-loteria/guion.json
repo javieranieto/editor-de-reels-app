@@ -1,0 +1,73 @@
+{
+ "_nota": "Narracion de corrido (tools/narrar.py): pon el id de una voz de tu cuenta de ElevenLabs y corre python tools/narrar.py animado/videos/ejemplo-loteria; luego render con --param narrado=1 --audio audio_narrado.json.",
+ "narrado": {
+  "voz": "PON_AQUI_EL_ID_DE_TU_VOZ",
+  "modelo": "eleven_v4",
+  "estabilidad": 0.3,
+  "velocidad": 1.0,
+  "cola": 2.2,
+  "texto": "¡Se va y se corre... con la lotería de los negocios! Hoy nos salió la carta veintitrés: ¡el que contesta tarde! Contesta tarde... y el cliente se va con el que no se tarda. Fíjese: el cliente le escribe a tres negocios. Uno contesta en dos minutos, otro en cuarenta... y el último, a las tres horas. ¿Quién vendió? Pues el primero, claro. Y mientras usted contesta, su competencia ya llenó la tabla... ¡Lotería! Así que ya sabe: conteste en minutos, no en horas.",
+  "anclas": {
+   "carta": [
+    "salio",
+    1,
+    -0.2
+   ],
+   "verso1": [
+    "contesta",
+    2,
+    0.0
+   ],
+   "verso2": [
+    "cliente",
+    1,
+    -0.15
+   ],
+   "verso3": [
+    "tarda",
+    1,
+    -0.7
+   ],
+   "caso": [
+    "fijese",
+    1,
+    -0.3
+   ],
+   "n1": [
+    "dos",
+    1,
+    -0.2
+   ],
+   "n2": [
+    "cuarenta",
+    1,
+    -0.2
+   ],
+   "n3": [
+    "tres",
+    2,
+    -0.2
+   ],
+   "sellos": [
+    "vendio",
+    1,
+    0.0
+   ],
+   "tabla": [
+    "mientras",
+    1,
+    -0.3
+   ],
+   "grito": [
+    "loteria",
+    2,
+    -0.1
+   ],
+   "consejo": [
+    "asi",
+    1,
+    -0.3
+   ]
+  }
+ }
+}
