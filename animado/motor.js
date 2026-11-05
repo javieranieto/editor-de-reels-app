@@ -117,7 +117,7 @@ function arrow(x1, y1, x2, y2, o = {}) {
 }
 
 // ---------- fondos (textura fija: comprime bien) ----------
-function makeTex(base, spot, fib) {
+function makeTex(base, spot, fib, vin = 'rgba(60,40,20,0.13)') {   // vin: color del vinetado, o null para quitarlo
   const c = document.createElement('canvas'); c.width = cv.width; c.height = cv.height;
   const g = c.getContext('2d'); g.fillStyle = base; g.fillRect(0, 0, c.width, c.height);
   const keep = seed; seed = 4242;
@@ -127,8 +127,11 @@ function makeTex(base, spot, fib) {
     const x = rng() * c.width, y = rng() * c.height, a = rng() * 6.3, L = 6 + rng() * 22;
     g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a) * L * .5 + rng() * 4, y + Math.sin(a) * L * .5, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke();
   }
-  const v = g.createRadialGradient(c.width / 2, c.height / 2, c.height * 0.45, c.width / 2, c.height / 2, c.width * 0.72);
-  v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(60,40,20,0.13)'); g.fillStyle = v; g.fillRect(0, 0, c.width, c.height);
+  if (vin) {                                       // lado menor / mayor: en vertical el circulo de dentro salia mas grande que el de fuera
+    const lo = Math.min(c.width, c.height), hi = Math.max(c.width, c.height);
+    const v = g.createRadialGradient(c.width / 2, c.height / 2, lo * 0.45, c.width / 2, c.height / 2, hi * 0.72);
+    v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, vin); g.fillStyle = v; g.fillRect(0, 0, c.width, c.height);
+  }
   seed = keep; return c;
 }
 let TEX = {};
@@ -265,13 +268,14 @@ async function init() {
   const q = new URLSearchParams(location.search);
   DIR = q.get('v') || '.'; ALFA = q.has('alfa');
   await cargar(DIR + '/escenas.js');
+  for (const u of VIDEO.usa || []) await cargar(u);   // piezas comunes: marcas/<marca>.js (paleta, personaje, mundo)
   for (const [fam, [archivo, desc]] of Object.entries(VIDEO.fuentes)) {
     const f = new FontFace(fam, `url(${archivo})`, desc || {});
     try { await f.load(); } catch (e) { throw new Error(`no se pudo cargar la fuente ${fam} (${archivo}): la ruta es relativa a animado/`); }
     document.fonts.add(f);
   }
   await document.fonts.ready;
-  for (const [k, f] of Object.entries(VIDEO.fondos)) TEX[k] = makeTex(f.base, f.manchas, f.fibras);
+  for (const [k, f] of Object.entries(VIDEO.fondos)) TEX[k] = makeTex(f.base, f.manchas, f.fibras, f.vineta === undefined ? undefined : f.vineta);
   if (VIDEO.preparar) await VIDEO.preparar();
   window.READY = true;
   if (!q.has('render')) {                           // vista previa en vivo, en bucle

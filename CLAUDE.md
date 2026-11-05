@@ -194,8 +194,11 @@ lo junta con música y efectos. Un video = una carpeta `animado/videos/<nombre>/
 `escenas.js` y su `audio.json`; el motor (`animado/motor.js`) no se toca. Con `--alfa` sale
 un **motion graphic para CapCut** (`.mov` qtrle/argb): una tarjeta que se dibuja sola, una
 cifra que se encierra en un círculo, encima de un reel sin tapar nada más. Los ejemplos
-(`ejemplo-dato`, `ejemplo-alcaraz`) son la plantilla; el método está en el skill
-`video-animado`.
+(`ejemplo-dato`, `ejemplo-alcaraz`, `ejemplo-pueblo` y `ejemplo-noticiero`) son la plantilla;
+lo de cada marca vive en `animado/marcas/`, y el método está en el skill `video-animado`.
+Sonido y voz sin créditos ni derechos ajenos: `tools/chiptune.py`, `tools/pueblo_blips.py` y
+`tools/pueblo_musica.py`; narración de corrido con `tools/narrar.py` y la voz grabada de la
+persona con `tools/armar_voz.py`.
 
 ## Estructura
 

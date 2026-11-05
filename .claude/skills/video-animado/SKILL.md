@@ -7,12 +7,18 @@ description: Del editor de reels (la herramienta vive en animado/). Hace un vide
 
 La herramienta está en `animado/` y las
 rutas de aquí son relativas a la raíz del repo. Todo el detalle en `animado/LEEME.md`.
-`animado/videos/ejemplo-alcaraz/` es la referencia para un video completo y
-`animado/videos/ejemplo-dato/` para una capa transparente: **copiar su estructura, no
-empezar de cero.**
+Hay cuatro ejemplos que funcionan tal cual, y **se copia el más parecido, no se empieza de
+cero**: `ejemplo-dato` (capa transparente), `ejemplo-alcaraz` (explicación dibujada a mano),
+`ejemplo-pueblo` (serie tipo RPG de 16 bits, sin voz, con sonidos y música hechos por código)
+y `ejemplo-noticiero` (formato de noticiero con una marca de empresa, con narración opcional).
+Lo de cada marca vive en `animado/marcas/` (copiar `marca_ejemplo.js` para una nueva).
 
 ## Antes de dibujar, tres preguntas
 
+0. **¿Qué formato?** Explicación, serie de historias (el pueblo), referencia que todos
+   reconocen (noticiero, lotería, telenovela: el FORMATO, con dibujos propios) o un
+   personaje que narra con la voz real de la persona (método en el LEEME). Ofrecer dos o
+   tres y que la persona escoja.
 1. **¿Video completo o capa encima?** Completo = MP4 con fondo (16:9 o 9:16). Capa =
    `--alfa`, un `.mov` transparente que va en una pista de CapCut sobre su video.
 2. **¿De qué marca?** Define paleta, tipografías, logo y handle. Los datos de marca se
@@ -20,6 +26,9 @@ empezar de cero.**
    un documento.
 3. **¿Qué cifras?** Cada número viene de la **fuente primaria** y se anota en
    `escenas.js` con su URL y fecha. Un número sin fuente no entra.
+
+4. **¿Con voz?** Si lleva narración, va **de corrido** con `tools/narrar.py` y el video se
+   acomoda a la voz (`--param narrado=1`). La voz cuenta lo que la pantalla no dice.
 
 ## Proceso
 

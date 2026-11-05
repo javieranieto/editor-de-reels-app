@@ -1,0 +1,58 @@
+{
+ "_nota": "La narracion va DE CORRIDO en una sola llamada (tools/narrar.py): cuenta la historia en vez de leer la pantalla. La pantalla lleva los titulares; la voz, la historia. 'anclas' = en que palabra empieza cada escena: [palabra, ocurrencia, ajuste en s]. El video se acomoda a la voz (--param narrado=1). Pon el id de una voz de tu cuenta de ElevenLabs.",
+ "narrado": {
+  "voz": "PON_AQUI_EL_ID_DE_TU_VOZ",
+  "modelo": "eleven_v4",
+  "estabilidad": 0.3,
+  "velocidad": 1.0,
+  "cola": 2.2,
+  "texto": "Buenas noches. Le tenemos una historia que pasa todos los días... Un cliente le escribe a un taller a las diez de la mañana. Pregunta cuánto cuesta la afinación... y espera. Una hora. Dos. Tres. Nadie le contesta. ¿Y sabe qué hizo? Le escribió a otro taller... y ese sí le contestó en dos minutos. Ahí se fue la venta. Por eso hoy le recomendamos algo muy sencillo: contéstele en minutos, no en horas.",
+  "anclas": {
+   "set": [
+    "le",
+    1,
+    -0.25
+   ],
+   "lugar": [
+    "cliente",
+    1,
+    -0.35
+   ],
+   "mensaje": [
+    "pregunta",
+    1,
+    -0.1
+   ],
+   "visto": [
+    "espera",
+    1,
+    0.0
+   ],
+   "tres": [
+    "tres",
+    1,
+    0.0
+   ],
+   "datos": [
+    "sabe",
+    1,
+    -0.45
+   ],
+   "dos_min": [
+    "dos",
+    2,
+    0.0
+   ],
+   "venta": [
+    "venta",
+    1,
+    0.0
+   ],
+   "reco": [
+    "por",
+    1,
+    -0.25
+   ]
+  }
+ }
+}

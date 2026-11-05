@@ -1,0 +1,17 @@
+{
+ "_nota": "Con la voz de tools/narrar.py. Los sonidos van en los tiempos de la version sin voz: si la voz los mueve, se ajustan con assets/tiempos.json.",
+ "efectos": [
+  {
+   "archivo": "animado/videos/ejemplo-noticiero/assets/narrado.wav",
+   "en": 0,
+   "volumen": 1.0
+  },
+  {
+   "archivo": "recursos/sfx/riser.wav",
+   "en": 0,
+   "volumen": 0.5
+  }
+ ],
+ "volumen_efectos": 0.6,
+ "lufs": -14
+}

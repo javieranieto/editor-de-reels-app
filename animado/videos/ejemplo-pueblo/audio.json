@@ -1,0 +1,17 @@
+{
+ "_nota": "Sin voz: los sonidos de letra hacen de voz. assets/blips.wav sale de tools/pueblo_blips.py y assets/musica.wav de tools/pueblo_musica.py (los dos leen guion.json).",
+ "musica": {
+  "archivo": "animado/videos/ejemplo-pueblo/assets/musica.wav",
+  "desde": 0,
+  "volumen": 0.22,
+  "fade_out": 2.0
+ },
+ "efectos": [
+  {
+   "archivo": "animado/videos/ejemplo-pueblo/assets/blips.wav",
+   "en": 0,
+   "volumen": 1.0
+  }
+ ],
+ "lufs": -14
+}

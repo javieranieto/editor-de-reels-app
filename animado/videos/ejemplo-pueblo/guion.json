@@ -1,0 +1,144 @@
+{
+ "_nota": "Ejemplo del pueblo de negocios. marca/lema/serie: quien presenta (aqui el negocio demo). marca_caja: el texto corto de la pestaña de la cajita (cabe ~12 letras). Los tiempos de dialogos, menu, batalla y sonidos estan en segundos; tools/pueblo_blips.py y tools/pueblo_musica.py leen este mismo archivo.",
+ "marca": "SERVICIOS ALCARAZ",
+ "marca_caja": "ALCARAZ",
+ "lema": "electricistas a domicilio",
+ "serie": "EL PUEBLO DE LOS NEGOCIOS · EP. 1",
+ "dur": 25,
+ "vel": 34,
+ "dialogos": [
+  {
+   "t0": 0.3,
+   "t1": 2.4,
+   "quien": "",
+   "texto": "Llegas al TALLER.\nHay fila."
+  },
+  {
+   "t0": 2.5,
+   "t1": 4.6,
+   "quien": "EMPLEADO",
+   "texto": "Ahorita lo\natiendo..."
+  },
+  {
+   "t0": 4.7,
+   "t1": 6.4,
+   "quien": "",
+   "texto": "Pasan 40\nminutos..."
+  },
+  {
+   "t0": 7.8,
+   "t1": 9.4,
+   "quien": "",
+   "texto": "¡Un CLIENTE\nDESESPERADO\napareció!"
+  },
+  {
+   "t0": 9.5,
+   "t1": 10.9,
+   "quien": "",
+   "texto": "EL TALLER usa\n¡IGNORAR!"
+  },
+  {
+   "t0": 11.0,
+   "t1": 12.0,
+   "quien": "",
+   "texto": "¡Su PACIENCIA\nbaja mucho!"
+  },
+  {
+   "t0": 12.1,
+   "t1": 13.0,
+   "quien": "",
+   "texto": "¡El cliente\nhuyó!"
+  },
+  {
+   "t0": 13.4,
+   "t1": 15.4,
+   "quien": "EMPLEADO",
+   "texto": "¿Me lo deja y\nle hablo?"
+  },
+  {
+   "t0": 15.5,
+   "t1": 17.0,
+   "quien": "TÚ",
+   "texto": "...y nunca me\nhabló."
+  }
+ ],
+ "menu": {
+  "t0": 14.4,
+  "t1": 15.4,
+  "opciones": [
+   "DEJARLO",
+   "IRME"
+  ],
+  "cambia": 14.9
+ },
+ "batalla": {
+  "swirl": 7.0,
+  "t0": 7.6,
+  "t1": 13.0,
+  "golpes": [
+   10.0,
+   10.5,
+   11.1,
+   11.6
+  ],
+  "huye": 12.1
+ },
+ "game_over": 17.1,
+ "continuar": {
+  "t0": 19.6,
+  "t1": 21.4,
+  "cambia": 20.4,
+  "elige": 20.9
+ },
+ "consejo": 21.4,
+ "sonidos": [
+  {
+   "t": 0.2,
+   "tipo": "campana"
+  },
+  {
+   "t": 2.55,
+   "tipo": "notif"
+  },
+  {
+   "t": 4.8,
+   "tipo": "tictac"
+  },
+  {
+   "t": 6.4,
+   "tipo": "sorpresa"
+  },
+  {
+   "t": 7.0,
+   "tipo": "swirl"
+  },
+  {
+   "t": 10.0,
+   "tipo": "golpe"
+  },
+  {
+   "t": 10.5,
+   "tipo": "golpe"
+  },
+  {
+   "t": 11.1,
+   "tipo": "golpe"
+  },
+  {
+   "t": 11.6,
+   "tipo": "golpe"
+  },
+  {
+   "t": 12.1,
+   "tipo": "huye"
+  },
+  {
+   "t": 20.4,
+   "tipo": "select"
+  },
+  {
+   "t": 20.9,
+   "tipo": "select"
+  }
+ ]
+}

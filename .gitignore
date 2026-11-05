@@ -36,3 +36,4 @@ mi_estilo.md
 
 # Modelo de recorte (Robust Video Matting, GPL-3.0, 15 MB): se baja solo la primera vez
 recursos/modelos/rvm_*.onnx
+animado/videos/ejemplo-pueblo/assets/*.wav

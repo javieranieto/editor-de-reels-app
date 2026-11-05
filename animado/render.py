@@ -94,6 +94,8 @@ def main():
     ap.add_argument("--ver", action="store_true", help="abrir la vista previa en el navegador")
     ap.add_argument("--salida", help="archivo de salida; con --fotos, la CARPETA de las capturas (por defecto en proyectos/animado/<video>/)")
     ap.add_argument("--crf", type=int, default=24)
+    ap.add_argument("--audio", default="audio.json", help="otro archivo de audio del video (p. ej. audio_voz.json)")
+    ap.add_argument("--param", nargs="+", default=[], help="k=v que el video lee de la URL (p. ej. narrado=1)")
     a = ap.parse_args()
 
     carpeta = a.video if os.path.isdir(a.video) else os.path.join(AQUI, "videos", a.video)
@@ -130,7 +132,7 @@ def main():
         page = nav.new_page(viewport={"width": 1280, "height": 720})
         errores = []
         page.on("pageerror", lambda e: errores.append(str(e)))
-        page.goto(url + "&render=1" + ("&alfa=1" if a.alfa else ""))
+        page.goto(url + "&render=1" + ("&alfa=1" if a.alfa else "") + "".join("&" + kv for kv in a.param))
         page.wait_for_function("window.READY === true || window.ERROR", timeout=60000)
         if page.evaluate("window.ERROR") or errores:
             sys.exit("Error en la pagina: " + (page.evaluate("window.ERROR") or errores[0]))
@@ -177,7 +179,7 @@ def main():
             sys.exit("ffmpeg fallo al codificar")
         nav.close()
 
-    audio = os.path.join(carpeta, "audio.json")
+    audio = os.path.join(carpeta, a.audio)
     if a.alfa or not os.path.exists(audio):
         shutil.move(solo_video, salida)          # move, no replace: el temporal puede estar en otro disco
     else:
